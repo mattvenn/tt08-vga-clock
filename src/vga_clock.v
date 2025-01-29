@@ -130,10 +130,12 @@ module vga_clock (
     wire [COL_INDEX_W-1:0] col_index;
     reg [COL_INDEX_W-1:0] col_index_q;
 
+    /*
     initial begin
         $display(FONT_W);
         $display(COL_INDEX_W);
     end
+    */
 
     digit #(.FONT_W(FONT_W), .FONT_H(FONT_H), .NUM_BLOCKS(NUM_CHARS*FONT_W)) digit_0 (.clk(px_clk), .x_block(x_block), .number(number), .digit_index(digit_index), .col_index(col_index), .color(color), .color_offset(color_offset));
 

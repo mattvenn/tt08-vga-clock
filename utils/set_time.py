@@ -11,8 +11,6 @@ button_off_time= 0.06
 # get a handle to the board
 tt = DemoBoard()
 tt.shuttle.tt_um_vga_clock.enable()
-tt.reset_project(True)
-tt.reset_project(False)
 tt.mode = RPMode.ASIC_RP_CONTROL
 tt.clock_project_PWM(31.5e6)
 
@@ -20,6 +18,10 @@ tt.clock_project_PWM(31.5e6)
 tt.ui_in[0] = 0
 tt.ui_in[1] = 0
 tt.ui_in[2] = 0
+
+# reset
+tt.reset_project(True)
+tt.reset_project(False)
 
 def press(button, number):
     print(f"pressing {button} x {number}")
@@ -31,5 +33,7 @@ def press(button, number):
 
 # set the time
 press(2, time.localtime()[5])
+time.sleep(2)
 press(1, time.localtime()[4])
+time.sleep(2)
 press(0, time.localtime()[3])
